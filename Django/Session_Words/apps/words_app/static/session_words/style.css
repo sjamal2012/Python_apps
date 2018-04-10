@@ -1,0 +1,73 @@
+body{
+    border:2px solid black;
+    border-radius: 5px;
+    font-family:"Comic Sans MS", cursive, sans-serif;
+    padding:20px;
+}
+p{
+    display:inline-block;
+    padding: 5px;
+    margin: 5px 0px;
+}
+.wrapper{
+    width: 810px;
+    margin:auto;
+}
+div{
+    display:inline-block;
+}
+div.left{
+    width: 395px;
+    min-height: 220px;
+    vertical-align: top;
+}
+form{
+    display: inline-block;
+    width: 395px;
+    min-height: 220px;
+    vertical-align: top;
+    margin:0px;
+}
+div.right{
+    width: 400px;
+    min-height: 220px;
+    vertical-align: top;
+}
+div.line{
+    background-color: black;
+    border-radius: 10px;
+    width: 4px;
+    min-height: 220px;
+    margin-bottom: 20px;
+}
+p.input{
+    margin-left: 10px
+}
+p.button{
+    display:block;
+}
+p.content{
+    display:block;
+    border: none;
+    font-size: 30px;
+}
+input[type='radio']{
+    margin-left: 20px;
+}
+input[name='add']{
+    background-color: #5fcafd;
+    border:2px solid black;
+    box-shadow: 1px 1px 2px black;
+}
+button{
+    background-color: #ff9393;
+    border:2px solid black;
+    box-shadow: 1px 1px 2px black;
+    margin-left: 250px;
+}
+#session_lines{
+    display:block;
+}
+span.big{
+    font-size: 30px;
+}

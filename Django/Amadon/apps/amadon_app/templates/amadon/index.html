@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <head>
+       <title>Dojo Survey Index</title>
+       {% load static %}
+       <link rel="stylesheet" href="{% static 'amadon/style.css' %}" media="screen" title="no title"  charset="utf-8">
+    </head>
+    <body>
+        <div class="wrapper">
+            <h1>Amadon Store!</h1>
+                <table>
+                    <thead>
+                        <tr>
+                            <th class="item">Item</th>
+                            <th class="price">Price</th>
+                            <th class="action">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for item in items %}
+                        <tr>
+                            <td>{{ item.name }}</td>
+                            <td>${{ item.price }}</td>
+                            <td>
+                                <form class="buy" action="/process/{{ item.id }}" method="post">{% csrf_token %}
+                                    <select name="quantity">
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                    </select>
+                                    <input type="hidden" name="product_id" value="1001">
+                                    <input type="submit" name="" value="Buy!">
+                                </form>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+        </div>
+    </body>
+</html>

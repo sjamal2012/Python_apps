@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Disappearing Ninjas</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    </head>
+    <body>
+        {% if i == 0 %}
+            <p>No ninjas here</p>
+        {% endif %}
+        <div class="wrapper">
+            {% if i == 1 %}
+                <img src= {{ leonardo }} alt="">
+                <img src= {{ michelangelo }} alt="">
+                <img src= {{ raphael }} alt="">
+                <img src= {{ donatello }} alt="">
+            {% endif %}
+
+            {% if color == 'blue' %}
+                <img src= {{ leonardo }} alt="">
+            {% endif %}
+
+            {% if color == 'orange' %}
+                <img src= {{ michelangelo }} alt="">
+            {% endif %}
+
+            {% if color == 'red' %}
+                <img src= {{ raphael }} alt="">
+            {% endif %}
+
+            {% if color == 'purple' %}
+                <img src= {{ donatello }} alt="">
+            {% endif %}
+
+            {% if i == 3 %}
+                <img src= {{ megan }} alt="">
+            {% endif %}
+
+        </div>
+
+    </body>
+</html>

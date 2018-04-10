@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <head>
+       <title>Course Index</title>
+       {% load static %}
+       <link rel="stylesheet" href="{% static 'leads/style.css' %}" media="screen" title="no title"  charset="utf-8">
+       <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    </head>
+    <body>
+        <h1>Filters</h1>
+        <div>
+            <label for="name-search">Full name: <input class='search-field' type="text" name="name-search" id="name-search"></label>
+            <div class="date_form">
+                <label for="from">From Date: <input class="search-field" type="date" name="from" id="from-search" value=""></label>
+                <label for="until">To Date: <input class="search-field" type="date" name="until" id="to-search" value=""></label>
+            </div>
+        </div>
+        <h1>
+            Leads
+            <nav id="pages"></nav>
+        </h1>
+        <table>
+            <thead>
+                <tr>
+                    <th class="short_head">lead_id</th>
+                    <th class="short_head">First Name</th>
+                    <th class="short_head">Last Name</th>
+                    <th class="long_head">Date Registered</th>
+                    <th class="long_head">Email</th>
+                </tr>
+            </thead>
+            <tbody id="leads">
+
+            </tbody>
+        </table>
+        <button type="button" name="new_lead">Add lead</button>
+    <script type="text/javascript"> window.CSRF_TOKEN = "{{csrf_token}}";</script>
+    <script type="text/javascript" src="{% static 'leads/script.js' %}"></script>
+    </body>
+</html>

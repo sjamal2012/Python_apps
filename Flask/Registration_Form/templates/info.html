@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Dojo Survey Index</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='val.css') }}">
+    </head>
+    <body class="labels">
+        <h2>Submitted Info</h2>
+        <div>
+            <p>First name: </p>
+            <p>Last name: </p>
+            <p>Email: </p>
+            <p> Password errors: </p>
+        </div>
+        <div class="info">
+            {% if fnCheck < 1 %}
+                <p class='error'>Area blank!</p>
+            {% else %}
+                <p>{{ first_name }}</p>
+            {% endif %}
+
+            {% if lnCheck < 1 %}
+                <p class='error'>Area blank!</p>
+            {% else %}
+                <p>{{ last_name }}</p>
+            {% endif %}
+
+            {% if emCheck < 1 %}
+                <p class='error'>Area blank!</p>
+            {% elif not EMAIL_REGEX.match(email) %}
+                <p class='error'>Invalid email!</p>
+            {% else %}
+                <p> {{ email }}
+            {% endif %}
+
+            {% if pwCheck < 1 %}
+                <p class='error'>Area blank!</p>
+            {% elif pwCheck < 8 %}
+                <p class='error'>Password too short!</p>
+            {% elif password != confirm_password %}
+                <p class='error'>Passwords don't match!</p>
+            {% else %}
+                <p>No errors.</p>
+            {% endif %}
+        </div>
+        <form class="" action="/" method="get">
+                <p class="button"><input type="submit" value="Go Back"></p>
+        </form>
+
+    </body>
+</html>

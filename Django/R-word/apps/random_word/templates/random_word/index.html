@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Date and Time</title>
+        {% load static %}
+        <link rel="stylesheet" href="{% static 'random_word/style.css' %}" media="screen" title="no title"  charset="utf-8">
+    </head>
+    <body>
+        <p>Random Word (attempt #{{ request.session.attempt }})</p>
+        <div>
+            {% if request.session.attempt == 1 %}
+                <p class='content'>This is the first attempt.</p>
+            {% else %}
+                <p class='content'>{{ request.session.attempt }}</p>
+            {% endif %}
+        </div>
+        <form class="" action="/random_word" method="post">
+            {% csrf_token %}
+            <input type="submit" name="gen_word" value="Generate">
+        </form>
+    </body>
+</html>

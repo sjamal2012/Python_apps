@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+    <head>
+       <title>Dojo Survey Index</title>
+       {% load static %}
+       <link rel="stylesheet" href="{% static 'ninja_gold/style.css' %}" media="screen" title="no title"  charset="utf-8">
+    </head>
+    <body>
+        <div class="header">
+            <p>Your Gold:</p>
+            <p class='counter'>{{ request.session.gold }}</p>
+        </div>
+        <div>
+            <h1>Farm</h1>
+            <p>(earns 10-20 gold)</p>
+            <form action="/process_money/1" method="post">{% csrf_token %}
+                <input type="submit" value="Find Gold!"/>
+            </form>
+        </div>
+        <div>
+            <h1>Cave</h1>
+            <p>(earns 5-10 gold)</p>
+            <form action="/process_money/2" method="post">{% csrf_token %}
+                <input type="submit" value="Find Gold!"/>
+            </form>
+        </div>
+        <div>
+            <h1>House</h1>
+            <p>(earns 2-5 gold)</p>
+            <form action="/process_money/3" method="post">{% csrf_token %}
+                <input type="submit" value="Find Gold!"/>
+            </form>
+        </div>
+        <div>
+            <h1>Casino</h1>
+            <p>(earns/takes 0-50 gold)</p>
+            <form action="/process_money/4" method="post">{% csrf_token %}
+                <input type="submit" value="Find Gold!"/>
+            </form>
+        </div>
+        <div class = "activity">
+            <h3>Activities</h3>
+            <div class="header">
+                {% for activity in request.session.activities reversed %}
+                    {% if activity.activity != "casino" %}
+                        <p class='activity'>
+                            <span style="color: green">Earned {{ activity.gold }} gold from the {{ activity.activity }}! ({{ activity.time }})</span>
+                        </p>
+                    {% elif activity.gold <= 0 %}
+                        <p class='activity'>
+                            <span style="color: red">Entered a casino and lost {{ activity.gold }} gold...ouch... ({{ activity.time }})</span>
+                        </p>
+                    {% elif activity.gold > 0 %}
+                        <p class='activity'>
+                            <span style="color: green">Entered a casino and won {{ activity.gold }} gold...NICE! ({{ activity.time }})</span>
+                        </p>
+                    {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+        <form class="reset" action="/reset" method="post">{% csrf_token %}
+            <input type="submit" name="reset" value="Reset">
+        </form>
+    </body>
+</html>

@@ -1,0 +1,34 @@
+body{
+    width: 600px;
+    text-align: center;
+    margin:auto;
+}
+input{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
+}
+div{
+    text-align: center;
+}
+p.result{
+    vertical-align: middle;
+    text-align: center;
+}
+.wrong{
+    display:inline-block;
+    width: 130px;
+    height: 130px;
+    background-color: red;
+    color: white;
+    font-family: "Comic Sans MS", cursive, sans-serif ;
+}
+.right{
+    display:inline-block;
+    width: 130px;
+    height: 130px;
+    background-color: green;
+    color: white;
+    font-family: "Comic Sans MS", cursive, sans-serif ;
+}

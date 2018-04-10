@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Dojo Survey Index</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='validates.css') }}">
+    </head>
+    <body>
+        <h2>Submitted Info</h2>
+        <div class="labels">
+            <p>Name:</p>
+            <p>Dojo Location:</p>
+            <p>Favorite Language:</p>
+            <p>Comment:</p>
+        </div>
+        <div class="info">
+            {% if check < 1 %}
+                <p class='error'>Error!</p>
+            {% else %}
+                <p>{{ name }}</p>
+            {% endif %}
+            <p>{{ loc }}</p>
+            <p>{{ lang }}</p>
+            {% if check2 < 1 %}
+                <p class='error'>Error!</p>
+            {% endif %}
+            {% if comcheck > 120 %}
+                <p class='error'>Error!</p>
+            {% else %}
+                <p>{{ comment }}</p>
+            {% endif %}
+        </div>
+        <form class="" action="/" method="get">
+                <p class="button"><input type="submit" value="Go Back"></p>
+        </form>
+
+    </body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <head>
+       <title>Dojo Survey Index</title>
+       <link rel="stylesheet" href="{{ url_for('static', filename='val.css') }}">
+    </head>
+    <body>
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                {% for message in messages %}
+                    <p>{{ message }}</p>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+        <form action='/process' method='post'>
+            <div class="names">
+                <p>First name: </p>
+                <p>Last name: </p>
+                <p>Email: </p>
+                <p>Password: </p>
+                <p>Confirm Password: </p>
+            </div>
+            <div class="inputs">
+                <p><input type='text' name='first_name'></p>
+                <p><input type='text' name='last_name'></p>
+                <p><input type='text' name='email'></p>
+                <p><input type='password' name='password'></p>
+                <p><input type='password' name='confirm_password'></p>
+                <p class="button"><input type='submit' value='Create User'></p>
+            </div>
+        </form>
+    </body>
+</html>

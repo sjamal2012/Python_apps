@@ -1,0 +1,33 @@
+*{
+    padding: 0px;
+    margin: 0px;
+}
+body{
+    width: 970px;
+    margin:auto;
+    padding: 50px;
+    text-align: center;
+}
+p{
+    display:inline-block;
+    padding: 5px;
+    border: 2px solid black;
+    margin:auto;
+}
+p.content{
+    display:block;
+    border: none;
+    font-size: 30px;
+}
+div{
+    display:inline-block;
+    padding: 5px;
+    border: 2px solid black;
+    text-align: center;
+    width: 700px;
+    margin:50px;
+}
+input[type='submit']{
+    padding: 2px 5px;
+    margin: 5px;
+}

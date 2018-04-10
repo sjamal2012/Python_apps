@@ -1,0 +1,26 @@
+
+body{
+    width: 380px;
+    border: 2px solid black;
+    padding: 20px;
+}
+form{
+    height: 300px;
+}
+div{
+    width:180px;
+    display:inline-block;
+    margin:auto;
+}
+.comment{
+    margin:0px;
+}
+.button{
+    text-align: right;
+}
+h2{
+    text-decoration: underline;
+}
+select{
+    width:173px;
+}

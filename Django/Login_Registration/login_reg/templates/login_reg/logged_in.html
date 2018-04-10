@@ -1,0 +1,16 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Success!</title>
+        <link rel="stylesheet" href="{% static 'login_reg/index.html' %}" media="screen" title="no title"  charset="utf-8">
+    </head>
+    <body>
+        {% if session['new_user'] == 1 %}
+            <p class="success">Hello there, you are logged in as {{ request.form['first_name'] }} {{ request.form['last_name']}}</p>
+        {% elif user %}
+            {% for user in user %}
+                <p class="success">Welcome back, you are logged in as {{ user['first_name'] }} {{ user['last_name']}}</p>
+            {% endfor %}
+        {% endif %}
+    </body>
+</html>

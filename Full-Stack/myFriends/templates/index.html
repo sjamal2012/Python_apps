@@ -1,0 +1,64 @@
+<html>
+<head>
+  <title>Friends</title>
+ <link rel="stylesheet" href="{{ url_for('static', filename='res.css') }}">
+</head>
+<body>
+    <h1>These are all my friends!</h1>
+    <div class='wrapper'>
+        <ul>
+            <li>First Name</li>
+            <li>Last Name</li>
+            <li class='email'>Email</li>
+            <li>Action</li>
+        </ul>
+        <hr>
+        <div class='left_wrap'>
+            {% for friend in all_friends: %}
+            <form class="friends" action='/' method='POST'>
+                <div class="data">
+                    <p>{{ friend['first_name'] }}</p>
+                </div>
+                <div class="data">
+                    <p>{{ friend['last_name'] }}</p>
+                </div>
+                <div class="email">
+                    <p>{{ friend['email'] }}</p>
+                </div>
+                <div class="data">
+
+                </div>
+               <hr>
+            </form>
+            {% endfor %}
+        </div>
+        <div class="action">
+            {% for friend in all_friends: %}
+                <div class="data">
+                    <form class="submit" action="/friends/{{ friend['id'] }}/edit" method="get">
+                        <input class='button' type='submit' value='Edit'>
+                    </form>
+                    <form class="submit" action="/friends/{{ friend['id'] }}/delete" method="get">
+                        <input class='button' type="submit" value="Delete">
+                    </form>
+                </div>
+               <hr>
+            {% endfor %}
+        </div>
+    </div>
+    {% with messages = get_flashed_messages() %}
+        {% for message in messages %}
+            <p class="failure">{{ message }}</p>
+        {% endfor %}
+    {% endwith %}
+    <h2>Add a Friend</h2>
+    <div class='form'>
+        <form action='/friends' method='POST'>
+            <label for="first_name">First Name:<input type="text" name="first_name" id="first_name"></label>
+            <label for="last_name">Last Name:<input type="text" name="last_name" id="last_name"></label>
+            <label for="occupation">Email:<input type="text" name="email" id="email"></label>
+            <input class='add' type="submit" value="Add Friend">
+        </form>
+    </div>
+</body>
+</html>

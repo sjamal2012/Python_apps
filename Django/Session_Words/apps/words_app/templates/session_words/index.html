@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+    <head>
+       <title>Dojo Survey Index</title>
+       {% load static %}
+       <link rel="stylesheet" href="{% static 'session_words/style.css' %}" media="screen" title="no title"  charset="utf-8">
+    </head>
+    <body>
+        <div class="wrapper">
+            <h1>Add a new word</h1>
+            <form action='/add' method='post'>
+                {% csrf_token %}
+
+                <div class="left">
+                    <p class='input'><input type='text' name='word'></p><br>
+                    <p>Choose color:</p><br>
+                    <input type="radio" name="color" value="red"> Red <br>
+                    <input type="radio" name="color" value="green"> Green <br>
+                    <input type="radio" name="color" value="blue"> Blue <br>
+                    <br>
+                    <input type="checkbox" name="font">
+                    <label for="font">show in BIG fonts!</label>
+
+                    <p class="button"><input type='submit' name='add' value='Add to Session'></p>
+                </div>
+
+            </form>
+            <div class="line">
+
+            </div>
+            <div class="right">
+                <a href="http://localhost:8000/clear"><button>Clear Session</button></a>
+                {% if request.session.session_words %}
+                    {% for word in request.session.session_words %}
+                        <p id="session_lines"><span style = "color:{{ word.color }}" class=" {{ word.big }}">{{ word.word }} </span> - added on {{ word.created_at }}</p>
+                    {% endfor %}
+                {% endif %}
+            </div>
+        </div>
+    </body>
+</html>

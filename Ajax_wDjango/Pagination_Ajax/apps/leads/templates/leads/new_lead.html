@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <head>
+       <title>Add lead</title>
+       {% load staticfiles %}
+       <link rel="stylesheet" href="{% static 'leads/val.css' %}" media="screen" title="no title"  charset="utf-8">
+       <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js">
+
+       </script>
+
+    </head>
+    <body>
+        {% if messages %}
+        <div class="messages">
+            {% for message in messages %}
+                <p> {{ message }}</p>
+            {% endfor %}
+        </div>
+        {% endif %}
+        <form action='/create' method='post'>{% csrf_token %}
+            <h1>Add lead</h1>
+            <div class="names">
+                <p>First name: </p>
+                <p>Last name: </p>
+                <p>Email: </p>
+            </div>
+            <div class="inputs">
+                <p><input type='text' name='first_name'></p>
+                <p><input type='text' name='last_name'></p>
+                <p><input type='text' name='email'></p>
+                <p class="button"><input type='submit' value='Add'></p>
+            </div>
+        </form>
+        <button type="button" name="button" id="cancel">Cancel</button>
+    <script type="text/javascript" src="{% static 'leads/script.js' %}">
+
+    </script>
+    </body>
+</html>
